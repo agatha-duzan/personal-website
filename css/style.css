@@ -399,7 +399,7 @@ h1, h2, h3, h4, h5, h6, figure {
 
 #fh5co-header {
   position: relative;
-  top: -100px;
+  overflow: hidden;
 }
 
 #fh5co-features {
@@ -1510,3 +1510,38 @@ h1 {
   font-weight: 700 !important;
 }
 /*# sourceMappingURL=style.css.map */
+
+/* 2) make the #tsparticles div cover its parent completely */
+#fh5co-header #tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;        /* behind everything */
+}
+
+/* 3) push your overlay & content above the particles */
+#fh5co-header .overlay {
+  display: none;    /* nixes the dark tint so you get pure white */
+}
+#fh5co-header .container {
+  position: relative;
+  z-index: 1;
+}
+
+#fh5co-header #tsparticles .tsparticles-canvas-el {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* TEMPORARY – gives the particles canvas a red outline */
+#fh5co-header #tsparticles canvas {
+  border: 2px dashed red;
+}
+
+/* always draw a red dashed outline around the particles canvas */
+canvas.tsparticles-canvas-el {
+  outline: 2px dashed red !important;
+}
