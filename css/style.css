@@ -47,13 +47,13 @@ body {
 }
 
 a {
-  color: #DD356E;
+  color: #321fea;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s;
 }
 a:hover, a:active, a:focus {
-  color: #DD356E;
+  color: #321fea;
   outline: none;
   text-decoration: none;
 }
@@ -71,17 +71,17 @@ h1, h2, h3, h4, h5, h6, figure {
 
 ::-webkit-selection {
   color: #fff;
-  background: #DD356E;
+  background: #321fea;
 }
 
 ::-moz-selection {
   color: #fff;
-  background: #DD356E;
+  background: #321fea;
 }
 
 ::selection {
   color: #fff;
-  background: #DD356E;
+  background: #321fea;
 }
 
 .fh5co-nav {
@@ -106,7 +106,7 @@ h1, h2, h3, h4, h5, h6, figure {
   font-family: "Inconsolata", Arial, sans-serif;
 }
 .fh5co-nav #fh5co-logo a span {
-  color: #DD356E;
+  color: #321fea;
 }
 .fh5co-nav a {
   padding: 5px 10px;
@@ -203,7 +203,7 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #fff;
 }
 .fh5co-nav ul li.btn-cta a span {
-  background: #DD356E;
+  background: #321fea;
   padding: 4px 10px;
   display: -moz-inline-stack;
   display: inline-block;
@@ -234,7 +234,7 @@ h1, h2, h3, h4, h5, h6, figure {
   content: '';
   width: 30px;
   height: 2px;
-  background: #DD356E;
+  background: #321fea;
   margin: 0 auto;
 }
 
@@ -369,7 +369,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-header .display-tc .btn.btn-demo,
 .fh5co-cover .display-tc .btn.btn-demo {
-  background: #DD356E;
+  background: #321fea;
   border: none;
 }
 #fh5co-header .display-tc .btn.btn-demo:hover, #fh5co-header .display-tc .btn.btn-demo:focus,
@@ -380,7 +380,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-header .display-tc .btn:hover,
 .fh5co-cover .display-tc .btn:hover {
-  background: #DD356E !important;
+  background: #321fea !important;
   -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
   -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
   box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
@@ -437,7 +437,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: table-cell;
   vertical-align: middle;
   height: 60px;
-  color: #DD356E !important;
+  color: #321fea !important;
 }
 #fh5co-features .feature-left .feature-copy {
   float: right;
@@ -673,7 +673,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline-block;
   zoom: 1;
   *display: inline;
-  color: #DD356E;
+  color: #321fea;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -721,7 +721,7 @@ h1, h2, h3, h4, h5, h6, figure {
   top: 0;
   left: 0;
   right: 0;
-  background: #DD356E;
+  background: #321fea;
 }
 #fh5co-started .fh5co-heading {
   margin-bottom: 0;
@@ -737,7 +737,7 @@ h1, h2, h3, h4, h5, h6, figure {
   height: 54px;
   border: none !important;
   background: #fff;
-  color: #DD356E;
+  color: #321fea;
   font-size: 16px;
   text-transform: uppercase;
   font-weight: 400;
@@ -953,7 +953,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .fh5co-team > div h3 {
   margin-bottom: 0;
   font-size: 20px;
-  color: #DD356E;
+  color: #321fea;
 }
 .fh5co-team > div .position {
   color: #d9d9d9;
@@ -1321,9 +1321,9 @@ input[type="text"] {
 }
 
 .btn-primary {
-  background: #DD356E;
+  background: #321fea;
   color: #fff;
-  border: 2px solid #DD356E;
+  border: 2px solid #321fea;
 }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   background: #e14b7e !important;
@@ -1331,11 +1331,11 @@ input[type="text"] {
 }
 .btn-primary.btn-outline {
   background: transparent;
-  color: #DD356E;
-  border: 2px solid #DD356E;
+  color: #321fea;
+  border: 2px solid #321fea;
 }
 .btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active {
-  background: #DD356E;
+  background: #321fea;
   color: #fff;
 }
 
@@ -1465,7 +1465,7 @@ input[type="text"] {
 .form-control:active, .form-control:focus {
   outline: none;
   box-shadow: none;
-  border-color: #DD356E;
+  border-color: #321fea;
 }
 
 .row-pb-md {
@@ -1536,12 +1536,13 @@ h1 {
   left: 0 !important;
 }
 
-/* TEMPORARY – gives the particles canvas a red outline */
-#fh5co-header #tsparticles canvas {
-  border: 2px dashed red;
+/* tighter white highlighter effect */
+.highlight-white {
+  background: linear-gradient(#fff 0%, #fff 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 70%;   /* 70% of text height = thinner band */
+  background-position: 0 65%;  /* push it down so it sits behind letters */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
-/* always draw a red dashed outline around the particles canvas */
-canvas.tsparticles-canvas-el {
-  outline: 2px dashed red !important;
-}

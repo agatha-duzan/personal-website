@@ -106,17 +106,25 @@
 				<div class="col-md-8 col-md-offset-0">
 					<div class="display-t js-fullheight">
 						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
+							<div class="hero-card">
 							<h1>
-								<span 
-									class="cool-font"
-									style="font-size: 10rem; line-height:1.1;"
-								>
+							<span 
+								class="cool-font highlight-white"
+								style="font-size: 10rem; line-height:1.1; color: #321fea;"
+							>
 								Agatha Duzan
-								</span><br>
-								AI safety and governance
+							</span><br>
+							<span class="highlight-white">AI safety and governance</span>
 							</h1>
-							<h2>... but also art, math, sport, and a bit of everything</h2>
-							<p><a class="btn btn-primary btn-lg btn-demo" href="#"></i> View Demo</a> <a class="btn btn-primary btn-lg btn-learn">Learn More</a></p>
+
+							<h2>
+							<span class="highlight-white">... but also art, math, sport, and a bit of everything</span>
+							</h2>
+
+							<p>
+							<a class="btn btn-primary btn-lg btn-demo" href="#"> View Demo</a>
+							<a class="btn btn-primary btn-lg btn-learn">Learn More</a>
+							</p>
 						</div>
 					</div>
 				</div>
@@ -456,68 +464,98 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 	
-	  <!-- …all your existing scripts (jQuery, bootstrap, main.js, etc.)… -->
+	<!-- tsParticles core v2.12.0 -->
+	<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
 
-  <!-- 1) tsParticles core (must come first) -->
-  <script src="https://cdn.jsdelivr.net/npm/tsparticles@latest/tsparticles.bundle.min.js"></script>
-  <!-- 2) Parallax Mover plugin (must come second) -->
-  <script src="js/tsparticles.move.parallax.min.js"></script>
+	<!-- Parallax mover plugin v2.12.0 -->
+	<script src="https://cdn.jsdelivr.net/npm/tsparticles-move-parallax@2.12.0/tsparticles.move.parallax.min.js"></script>
 
-  <!-- 3) Your init script (runs after both are loaded) -->
-  <script>
-    window.addEventListener("load", async () => {
-      // 1) register the parallax plugin
-      await loadParallaxMover(tsParticles);
+	<script>
+	window.addEventListener("load", async () => {
+		await loadParallaxMover(tsParticles); // now defined because versions match
 
-      // 2) build your options object
-      const options = {
-        fullScreen: {
-          enable: false,   // ← disable the fixed full-viewport canvas
-          zIndex: 0        // ← optional: stack it behind your content
-        },
+		const options = {
+			autoPlay: true,
+			background: {
+				color: { value: "#ffffff" },
+				opacity: 1
+			},
+			fullScreen: { enable: false, zIndex: 0 }, // <— important for hero-only
+			detectRetina: true,
+			fpsLimit: 60, // lighter on CPU than 120
 
-        background: {
-          color: { value: "#f0f0f0" }  // ← light gray so you can see it
-        },
+			interactivity: {
+				detectsOn: "window",
+				events: {
+					onClick: { enable: true, mode: "push" },
+					onHover: {
+						enable: true,
+						mode: "grab",
+						parallax: {
+							enable: true,
+							force: 30,
+							smooth: 10
+						}
+					},
+					resize: { enable: true, delay: 0.5 }
+				},
+				modes: {
+				grab: {
+					distance: 300,             // try 300–500 for your taste
+					links: { opacity: 1 }      // 0–1; 1 = solid
+				},
+				parallax: { force: 80, smooth: 12 }, // strength & lag (try force 40–120, smooth 6–30)
+				push: { quantity: 4 }
+				}
+			},
 
-        fpsLimit: 60,
+			particles: {
+				number: {
+				value: 150,
+				density: { enable: true, width: 1920, height: 1080 }
+				},
 
-        particles: {
-          number: { value: 80, density: { enable: true, area: 800 } },
-          color: { value: "#007BFF" },
-          links: {
-            enable: true,
-            distance: 150,
-            color: "#007BFF",
-            opacity: 0.4,
-            width: 1
-          },
-          move: { enable: true, speed: 1 },
-          size: { value: 3, random: true },
-          opacity: { value: 0.7 }
-        },
+				color: { value: "#321fea" },  // white dots
+				links: {
+				enable: true,
+				color: "#321fea",           // white lines
+				distance: 200,
+				opacity: 0.5,
+				width: 1
+				},
 
-        interactivity: {
-          detectsOn: "canvas",
-          events: {
-            onHover: { enable: true, mode: "parallax" },
-            onResize: true
-          },
-          modes: {
-            parallax: { force: 60, smooth: 20 }
-          }
-        },
+				move: {
+				enable: true,
+				direction: "none",
+				speed: 1.2,
+				outModes: { default: "out" }
+				},
 
-        detectRetina: true
-      };
+				opacity: {
+				value: { min: 0.15, max: 0.45 },
+				animation: { enable: true, speed: 2, startValue: "random" }
+				},
 
-      // sanity-check
-      console.log("fullScreen enabled? ", options.fullScreen.enable);
+				size: {
+				value: { min: 1, max: 6 },
+				animation: { enable: true, speed: 12, startValue: "random" }
+				},
 
-      // 3) finally fire it up
-      tsParticles.load("tsparticles", options);
-    });
-  </script>
+				shape: { type: "circle" }
+			},
+
+			pauseOnBlur: true,
+			pauseOnOutsideViewport: true,
+			motion: { disable: false, reduce: { value: true, factor: 4 } }
+			};
+
+
+		tsParticles.load("tsparticles", options);
+	});
+	</script>
+
+
+
 
 	
 </body>
