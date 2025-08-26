@@ -76,6 +76,49 @@
     #fh5co-slider .heading p {
       color: white;
     }
+    
+    /* Mobile fixes */
+    @media (max-width: 768px) {
+      /* Ensure hero section takes full viewport on mobile */
+      #fh5co-header {
+        min-height: 100vh !important;
+        height: 100vh !important;
+        position: relative !important;
+      }
+      
+      /* Force particles container to match */
+      #fh5co-header #tsparticles {
+        height: 100vh !important;
+        min-height: 100vh !important;
+      }
+      
+      /* Ensure the display elements fill the space properly */
+      #fh5co-header .display-t {
+        display: table !important;
+        height: 100vh !important;
+        width: 100% !important;
+      }
+      
+      #fh5co-header .display-tc {
+        display: table-cell !important;
+        vertical-align: middle !important;
+        height: 100vh !important;
+      }
+      
+      /* Prevent any weird height calculations */
+      body, html {
+        overflow-x: hidden;
+      }
+      
+      /* Fix for other pages - add top padding to account for fixed navigation */
+      #fh5co-portfolio,
+      #fh5co-blog,
+      #fh5co-contact,
+      #fh5co-started,
+      .fh5co-content-section {
+        padding-top: 120px !important; /* Navigation height + extra space */
+      }
+    }
   </style>
 
   <!-- Modernizr JS -->
@@ -88,6 +131,45 @@
 </head>
 
 	<body>
+		
+	<!-- Immediate mobile height fix -->
+	<script>
+		// Run immediately to fix mobile layout before any other scripts
+		if (window.innerWidth <= 768) {
+			// Disable scroll restoration to prevent browser from jumping to previous position
+			if ('scrollRestoration' in history) {
+				history.scrollRestoration = 'manual';
+			}
+			
+			// Set up a function to fix heights
+			function fixMobileHeights() {
+				const heroElement = document.getElementById('fh5co-header');
+				const jsFullHeightElements = document.querySelectorAll('.js-fullheight');
+				const viewportHeight = window.innerHeight;
+				
+				if (heroElement) {
+					heroElement.style.height = viewportHeight + 'px';
+					heroElement.style.minHeight = viewportHeight + 'px';
+				}
+				
+				jsFullHeightElements.forEach(function(element) {
+					element.style.height = viewportHeight + 'px';
+					element.style.minHeight = viewportHeight + 'px';
+				});
+				
+				// Force scroll to top
+				setTimeout(function() {
+					window.scrollTo(0, 0);
+					document.documentElement.scrollTop = 0;
+					document.body.scrollTop = 0;
+				}, 50);
+			}
+			
+			// Run immediately and after DOM loads
+			fixMobileHeights();
+			document.addEventListener('DOMContentLoaded', fixMobileHeights);
+		}
+	</script>
 		
 	<div class="fh5co-loader"></div>
 	
@@ -134,7 +216,7 @@
 							</h1>
 
 							<h2>
-							<span class="highlight-white">... but also art, math, sport, and a bit of everything</span>
+							<span class="highlight-white">... but also art, math, sport, <br class="mobile-break">and a bit of everything</span>
 							</h2>
 
 							<p>
@@ -290,8 +372,15 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>Let's get in touch!</h2>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-					<p><a href="#" class="btn btn-default btn-lg">Contact me</a></p>
+					<p>
+						Looking to collaborate on a project?
+						Need feedback or want to discuss ideas from my field?
+						Exploring new opportunities or potential roles?
+					</p>
+					<p>
+						I'd be happy to collaborate, share insights, and exchange ideas: <strong>don't hesitate to reach out!</strong>
+					</p>
+					<p><a href="contact.html" class="btn btn-default btn-lg">Contact me</a></p>
 				</div>
 			</div>
 		</div>
@@ -338,6 +427,26 @@
 
 	<script>
 	window.addEventListener("load", async () => {
+		// Mobile-specific fix: Ensure proper height calculation
+		if (window.innerWidth <= 768) {
+			// Force proper height for mobile hero section
+			const heroElement = document.getElementById('fh5co-header');
+			const jsFullHeightElements = document.querySelectorAll('.js-fullheight');
+			
+			if (heroElement) {
+				heroElement.style.height = window.innerHeight + 'px';
+			}
+			
+			jsFullHeightElements.forEach(function(element) {
+				element.style.height = window.innerHeight + 'px';
+			});
+			
+			// Force scroll to top
+			window.scrollTo(0, 0);
+			document.documentElement.scrollTop = 0;
+			document.body.scrollTop = 0;
+		}
+		
 		await loadParallaxMover(tsParticles); // now defined because versions match
 
 		const options = {

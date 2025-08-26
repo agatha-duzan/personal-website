@@ -1136,7 +1136,7 @@ input[type="text"] {
   position: absolute;
   z-index: 1901;
   width: 270px;
-  background: black;
+  background: #4034ab;
   top: 0;
   right: 0;
   top: 0;
@@ -1216,6 +1216,31 @@ input[type="text"] {
   transform: rotate(-180deg);
 }
 
+/* Custom styles for mobile menu links */
+@media screen and (max-width: 768px) {
+  #fh5co-offcanvas ul li a {
+    font-size: 20px;
+    padding: 15px 0;
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  #fh5co-offcanvas ul li a:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    padding-left: 10px;
+  }
+  
+  #fh5co-offcanvas ul li:last-child a {
+    border-bottom: none;
+  }
+}
+
 .uppercase {
   font-size: 14px;
   color: #000;
@@ -1278,8 +1303,8 @@ input[type="text"] {
 .fh5co-nav-toggle i {
   position: relative;
   display: inline-block;
-  width: 25px;
-  height: 2px;
+  width: 30px;
+  height: 3px;
   color: #252525;
   font: bold 14px/.4 Helvetica;
   text-transform: uppercase;
@@ -1289,8 +1314,8 @@ input[type="text"] {
 }
 .fh5co-nav-toggle i::before, .fh5co-nav-toggle i::after {
   content: '';
-  width: 25px;
-  height: 2px;
+  width: 30px;
+  height: 3px;
   background: #252525;
   position: absolute;
   left: 0;
@@ -1345,17 +1370,16 @@ input[type="text"] {
 }
 
 .fh5co-nav-toggle {
-  position: absolute;
-  right: 0px;
-  top: 65px;
-  z-index: 21;
+  position: fixed;
+  right: 20px;
+  top: 58px;
+  z-index: 2001;
   padding: 6px 0 0 0;
   display: block;
   margin: 0 auto;
   display: none;
   height: 44px;
   width: 44px;
-  z-index: 2001;
   border-bottom: none !important;
 }
 @media screen and (max-width: 768px) {
@@ -1614,5 +1638,53 @@ h1 {
   background-position: 0 65%;  /* push it down so it sits behind letters */
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
+}
+
+/* Mobile line break - hidden by default */
+.mobile-break {
+  display: none;
+}
+
+/* Mobile phone specific adjustments - keeping desktop/laptop unchanged */
+@media screen and (max-width: 480px) {
+  /* Make main title smaller on phones only */
+  .cool-font.highlight-white {
+    font-size: 5rem !important;
+    line-height: 1.1 !important;
+  }
+  
+  /* Show the mobile line break on phones */
+  .mobile-break {
+    display: inline;
+  }
+  
+  /* Move entire content block up and to the left */
+  #fh5co-header .display-tc {
+    transform: translate(-15px, -50px) !important; /* Move left 15px, up 30px */
+  }
+  
+  /* Align text content to match button positioning */
+  #fh5co-header .display-tc h1,
+  #fh5co-header .display-tc h2 {
+    text-align: left !important;
+    margin-left: 24px !important; /* Match button padding for alignment */
+  }
+  
+  /* Make "About me" button same height as social icons (60px) */
+  .btn.btn-primary.btn-lg.btn-demo {
+    width: auto !important;
+    height: 60px !important;
+    padding: 0 24px !important;
+    font-size: 1.5rem !important;
+    display: inline-block !important;
+    line-height: 60px !important;
+    vertical-align: middle !important;
+  }
+  
+  /* Align button and social icons to the left */
+  #fh5co-header .display-tc p {
+    text-align: left;
+    margin-left: 24px !important; /* Match text alignment */
+  }
 }
 

@@ -62,6 +62,25 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- Mobile navigation fix -->
+	<style>
+		@media (max-width: 768px) {
+			/* Fix for pages with fixed navigation - add top padding */
+			#fh5co-portfolio,
+			#fh5co-blog,
+			#fh5co-contact,
+			#fh5co-started,
+			.fh5co-content-section {
+				padding-top: 120px !important; /* Navigation height + extra space */
+			}
+			
+			/* Reduce heading size on mobile by 30% */
+			h2.cool-font {
+				font-size: 5.6rem !important;
+			}
+		}
+	</style>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -80,7 +99,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="fh5co-logo"><a href="activity.html">Air<span>.</span></a></div>
+							<div id="fh5co-logo"><a href="index.html"><img src="images/logo_agatha.jpg" alt="Agatha Duzan"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -207,9 +226,16 @@
 		<div class="container">
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hire Us!</h2>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-					<p><a href="#" class="btn btn-default btn-lg">Contact Us</a></p>
+					<h2>Let's get in touch!</h2>
+					<p>
+						Looking to collaborate on a project?
+						Need feedback or want to discuss ideas from my field?
+						Exploring new opportunities or potential roles?
+					</p>
+					<p>
+						I'd be happy to collaborate, share insights, and exchange ideas: <strong>don't hesitate to reach out!</strong>
+					</p>
+					<p><a href="contact.html" class="btn btn-default btn-lg">Contact me</a></p>
 				</div>
 			</div>
 		</div>

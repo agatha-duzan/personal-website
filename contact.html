@@ -61,6 +61,25 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- Mobile navigation fix -->
+	<style>
+		@media (max-width: 768px) {
+			/* Fix for pages with fixed navigation - add top padding */
+			#fh5co-portfolio,
+			#fh5co-blog,
+			#fh5co-contact,
+			#fh5co-started,
+			.fh5co-content-section {
+				padding-top: 120px !important; /* Navigation height + extra space */
+			}
+			
+			/* Reduce heading size on mobile by 30% */
+			h2.cool-font {
+				font-size: 5.6rem !important;
+			}
+		}
+	</style>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -79,7 +98,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="fh5co-logo"><a href="contact.html">Air<span>.</span></a></div>
+							<div id="fh5co-logo"><a href="index.html"><img src="images/logo_agatha.jpg" alt="Agatha Duzan"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -101,7 +120,7 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2 class="cool-font" style="font-size: 8rem;">
-						Contact me
+						Contact
 					</h2>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
 				</div>
@@ -144,80 +163,6 @@
 					</div>
 				</div>
 			</div>
-	</div>
-	
-	<div id="fh5co-started">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Hire Us!</h2>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-					<p><a href="#" class="btn btn-default btn-lg">Contact Us</a></p>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
-			<div class="row row-pb-md">
-				<div class="col-md-4 fh5co-widget">
-					<h4>Air</h4>
-					<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-				</div>
-				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Links</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Home</a></li>
-						<li><a href="#">Portfolio</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#">About</a></li>
-					</ul>
-				</div>
-
-				<div class="col-md-2 col-md-push-1 fh5co-widget">
-					<h4>Categories</h4>
-					<ul class="fh5co-footer-links">
-						<li><a href="#">Landing Page</a></li>
-						<li><a href="#">Real Estate</a></li>
-						<li><a href="#">Personal</a></li>
-						<li><a href="#">Business</a></li>
-						<li><a href="#">e-Commerce</a></li>
-					</ul>
-				</div>
-
-				<div class="col-md-4 col-md-push-1 fh5co-widget">
-					<h4>Contact Information</h4>
-					<ul class="fh5co-footer-links">
-						<li>198 West 21th Street, <br> Suite 721 New York NY 10016</li>
-						<li><a href="tel://1234567920">+ 1235 2355 98</a></li>
-						<li><a href="mailto:info@yoursite.com">info@yoursite.com</a></li>
-						<li><a href="http://https://freehtml5.co">freehtml5.co</a></li>
-					</ul>
-				</div>
-
-			</div>
-
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-					</p>
-				</div>
-			</div>
-
-		</div>
-	</footer>
 	</div>
 
 	<div class="gototop js-top">

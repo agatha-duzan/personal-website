@@ -62,6 +62,25 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- Mobile navigation fix -->
+	<style>
+		@media (max-width: 768px) {
+			/* Fix for pages with fixed navigation - add top padding */
+			#fh5co-portfolio,
+			#fh5co-blog,
+			#fh5co-contact,
+			#fh5co-started,
+			.fh5co-content-section {
+				padding-top: 120px !important; /* Navigation height + extra space */
+			}
+			
+			/* Reduce heading size on mobile by 30% */
+			h2.cool-font {
+				font-size: 5.6rem !important;
+			}
+		}
+	</style>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -80,7 +99,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-xs-2">
-							<div id="fh5co-logo"><a href="blog.html">Air<span>.</span></a></div>
+							<div id="fh5co-logo"><a href="index.html"><img src="images/logo_agatha.jpg" alt="Agatha Duzan"></a></div>
 						</div>
 						<div class="col-xs-10 text-right menu-1">
 							<ul>
@@ -155,30 +174,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
-
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small> 
-						<small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
-					</p>
-					<p>
-						<ul class="fh5co-social-icons">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-linkedin"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
-						</ul>
-					</p>
-				</div>
-			</div>
-
-		</div>
-	</footer>
 	</div>
 
 	<div class="gototop js-top">
