@@ -105,6 +105,21 @@ h1, h2, h3, h4, h5, h6, figure {
   font-weight: 700;
   font-family: "Inconsolata", Arial, sans-serif;
 }
+.fh5co-nav #fh5co-logo {
+  position: relative;
+  height: 60px; /* keep original height for layout */
+}
+.fh5co-nav #fh5co-logo img {
+  height: 90px;
+  width: auto;
+  max-width: none;
+  border-radius: 4px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  z-index: 10;
+}
 .fh5co-nav #fh5co-logo a span {
   color: #321fea;
 }
@@ -352,9 +367,9 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-header .display-tc .btn.btn-learn,
 .fh5co-cover .display-tc .btn.btn-learn {
-  background: #fee856;
+  background: #ff9900;
   border: none;
-  color: #000 !important;
+  color: #000000 !important;
 }
 #fh5co-header .display-tc .btn.btn-learn:hover, #fh5co-header .display-tc .btn.btn-learn:focus,
 .fh5co-cover .display-tc .btn.btn-learn:hover,
@@ -369,13 +384,14 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-header .display-tc .btn.btn-demo,
 .fh5co-cover .display-tc .btn.btn-demo {
-  background: #321fea;
+  background: #ff9900;
   border: none;
+  color: #000 !important;
 }
 #fh5co-header .display-tc .btn.btn-demo:hover, #fh5co-header .display-tc .btn.btn-demo:focus,
 .fh5co-cover .display-tc .btn.btn-demo:hover,
 .fh5co-cover .display-tc .btn.btn-demo:focus {
-  background: rgba(221, 53, 110, 0.9) !important;
+  background: #ff0080e6 !important;
   color: #fff !important;
 }
 #fh5co-header .display-tc .btn:hover,
@@ -384,6 +400,60 @@ h1, h2, h3, h4, h5, h6, figure {
   -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
   -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
   box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Social Media Icons */
+.btn-social {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  margin: 0 10px;
+  color: #321fea;
+  font-size: 60px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  vertical-align: middle;
+  background: transparent;
+  border: none;
+}
+
+.btn-social:hover, .btn-social:focus {
+  text-decoration: none;
+  color: #ff0080e6;
+  transform: translateY(-3px);
+  -webkit-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
+}
+
+.btn-social.linkedin {
+  color: #321fea;
+}
+
+.btn-social.linkedin:hover, .btn-social.linkedin:focus {
+  color: #ff0080e6;
+}
+
+.btn-social.github {
+  color: #321fea;
+  background: transparent;
+  padding: 0;
+  line-height: 60px;
+  vertical-align: top;
+}
+
+.btn-social.github:hover, .btn-social.github:focus {
+  color: #ff0080e6;
+  background: transparent;
+}
+
+.btn-social.github svg {
+  width: 60px;
+  height: 60px;
+  vertical-align: top;
+  display: inline-block;
 }
 #fh5co-header .display-tc .form-inline .form-group,
 .fh5co-cover .display-tc .form-inline .form-group {
@@ -721,7 +791,7 @@ h1, h2, h3, h4, h5, h6, figure {
   top: 0;
   left: 0;
   right: 0;
-  background: #321fea;
+  background: #4034ab;
 }
 #fh5co-started .fh5co-heading {
   margin-bottom: 0;
