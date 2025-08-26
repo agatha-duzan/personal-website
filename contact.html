@@ -63,7 +63,7 @@
 
 	<!-- Mobile navigation fix -->
 	<style>
-		@media (max-width: 768px) {
+		@media (max-width: 1024px) { /* Include iPad Mini and other tablets */
 			/* Fix for pages with fixed navigation - add top padding */
 			#fh5co-portfolio,
 			#fh5co-blog,
@@ -76,6 +76,19 @@
 			/* Reduce heading size on mobile by 30% */
 			h2.cool-font {
 				font-size: 5.6rem !important;
+			}
+		}
+		
+		/* Force desktop navigation on iPad Mini and larger */
+		@media (min-width: 768px) {
+			/* Hide hamburger menu on iPad Mini and larger */
+			.fh5co-nav-toggle {
+				display: none !important;
+			}
+			
+			/* Show desktop menu on iPad Mini and larger */
+			.fh5co-nav .menu-1 {
+				display: block !important;
 			}
 		}
 	</style>
@@ -122,47 +135,31 @@
 					<h2 class="cool-font" style="font-size: 8rem;">
 						Contact
 					</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
+					<div style="text-align: center; max-width: 800px; margin: 0 auto; color: #000;">
+						<p style="color: #000; font-size: 1.2em;">If any of the following resonates, feel free to connect via email or LinkedIn:</p>
+						
+						<!-- Contact buttons -->
+						<div style="text-align: center; margin: 30px 0 60px 0;">
+							<a class="btn-social" href="mailto:agathaduzan@gmail.com" style="margin-right: 20px;">
+								<i class="icon-mail"></i>
+							</a>
+							<a class="btn-social linkedin" href="https://www.linkedin.com/in/agathaduzan/" target="_blank" rel="noopener noreferrer">
+								<i class="icon-linkedin-with-circle"></i>
+							</a>
+						</div>
+						
+						<p style="margin-bottom: 18px; color: #000; text-align: left;">Here are some of the things I can help with or would love to hear from you about:</p>
+						<ul style="text-align: left; margin-bottom: 20px; color: #000;">
+							<li><strong>Collaborations:</strong> I'm interested in both longer-term projects related to AI safety or governance, as well as shorter-term things like teaming up for a hackathon.</li>
+							<li><strong>Feedback:</strong> I can share insights on AI, AI safety, and deeptech startups (from my time as a VC, I'm pretty good at red-teaming startup pitches)</li>
+							<li><strong>Opportunities & roles:</strong> Starting March 2026, I'll be looking for a master's thesis, ideally industry-based and related to AI safety. I'm also open to academic or lab-based projects.</li>
+							<li><strong>Exchanging ideas:</strong> Always happy to discuss and brainstorm around the topics mentioned above, or just interesting ideas in general.</li>
+							<li><strong>Other:</strong> If you think there's something important I should look into, or a project that seems particularly aligned with my profile and interests (even if I haven't listed it here), I'd be happy to hear about it.</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-		<div class="container">
-				<div class="row">
-					<div class="col-md-3 col-md-push-1 animate-box">
-						<h3>Our Address</h3>
-						<ul class="contact-info">
-							<li><i class="icon-location"></i>198 West 21th Street, Suite 721 New York NY 10016</li>
-							<li><i class="icon-old-phone"></i>+ 1235 2355 98</li>
-							<li><i class="icon-mail22"></i><a href="#">info@yoursite.com</a></li>
-							<li><i class="icon-globe2"></i><a href="#">www.yoursite.com</a></li>
-						</ul>
-					</div>
-					<div class="col-md-7 col-md-push-1 animate-box">
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Name">
-								</div>
-							</div>
-							<div class="col-md-6">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Email">
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<textarea name="" class="form-control" id="" cols="30" rows="7" placeholder="Message"></textarea>
-								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="form-group">
-									<input type="submit" value="Send Message" class="btn btn-primary">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
 	</div>
 
 	<div class="gototop js-top">

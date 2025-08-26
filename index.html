@@ -77,8 +77,8 @@
       color: white;
     }
     
-    /* Mobile fixes */
-    @media (max-width: 768px) {
+    /* Mobile fixes - only for actual mobile phones */
+    @media (max-width: 767px) {
       /* Ensure hero section takes full viewport on mobile */
       #fh5co-header {
         min-height: 100vh !important;
@@ -118,6 +118,124 @@
       .fh5co-content-section {
         padding-top: 120px !important; /* Navigation height + extra space */
       }
+      
+      /* About me section responsive adjustments */
+      .about-item {
+        margin-bottom: 50px;
+      }
+      
+      .about-item h4 {
+        min-height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      @media (max-width: 991px) {
+        .about-item .about-image {
+          width: 250px !important;
+        }
+        
+        .about-item h4 {
+          font-size: 16px !important;
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .about-item {
+          margin-bottom: 40px;
+        }
+        
+        .about-item .about-image {
+          width: 280px !important;
+        }
+      }
+      
+      @media (max-width: 480px) {
+        .about-item .about-image {
+          width: 250px !important;
+        }
+      }
+    }
+    
+    /* Force desktop navigation on iPad Mini and larger */
+    @media (min-width: 768px) {
+      /* Hide hamburger menu on iPad Mini and larger */
+      .fh5co-nav-toggle {
+        display: none !important;
+      }
+      
+      /* Show desktop menu on iPad Mini and larger */
+      .fh5co-nav .menu-1 {
+        display: block !important;
+      }
+    }
+    
+    /* Resume link styling */
+    .resume-link {
+      color: #ff9900 !important; /* Same orange as About me button */
+      text-decoration: underline;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    
+    .resume-link:hover {
+      color: #ff0080 !important; /* Same pink as About me button hover */
+      text-decoration: underline;
+      text-shadow: 0 0 8px rgba(255, 0, 128, 0.5);
+    }
+    
+    .resume-link:visited {
+      color: #ff9900 !important; /* Keep orange even after visiting */
+    }
+    
+    .resume-link:visited:hover {
+      color: #ff0080 !important; /* Pink on hover even after visiting */
+    }
+    
+    /* About me button sizing - prevent stretching on tablet sizes */
+    .btn-demo {
+      max-width: 200px !important;
+      width: auto !important;
+      display: inline-block !important;
+    }
+    
+    /* About me section responsive grid fixes */
+    .about-item {
+      margin-bottom: 50px;
+      padding: 0 15px; /* Add horizontal padding for better spacing */
+    }
+    
+    .about-item .about-image {
+      max-width: 300px;
+      width: 100%;
+      margin: 0 auto;
+    }
+    
+    /* Ensure proper spacing on different screen sizes */
+    @media (max-width: 991px) and (min-width: 768px) {
+      /* iPad and medium tablets: 2 columns */
+      .about-item .about-image {
+        max-width: 250px !important;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      /* Mobile phones: 1 column */
+      .about-item {
+        margin-bottom: 40px;
+        padding: 0 30px;
+      }
+      
+      .about-item .about-image {
+        max-width: 280px !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      /* Small mobile phones */
+      .about-item .about-image {
+        max-width: 250px !important;
+      }
     }
   </style>
 
@@ -135,7 +253,7 @@
 	<!-- Immediate mobile height fix -->
 	<script>
 		// Run immediately to fix mobile layout before any other scripts
-		if (window.innerWidth <= 768) {
+		if (window.innerWidth <= 1024) { // Include iPad Mini and other tablets
 			// Disable scroll restoration to prevent browser from jumping to previous position
 			if ('scrollRestoration' in history) {
 				history.scrollRestoration = 'manual';
@@ -244,65 +362,63 @@
 				<div class="col-md-6 animate-box">
 					<div class="heading">
 						<h2>About me</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-							Far far away, behind the word mountains, far from the countries Vokalia and Consonantia. Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-							Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
-							Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.
+						<p>
+							For the polished, corporate version of me: <strong><a href="https://docs.google.com/document/d/1fuE46LnMd3v4h0nY1j3jT2GRLAmSTKn-xAMs8iqmCBE/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-link">check out my resume</a></strong>
+						</p>
+						<p>
+							Otherwise here's the short version. I love:
 						</p>
 					</div>
 				</div>
-				<div class="col-md-6 col-md-push-1 animate-box">
-					<aside id="fh5co-hero">
-					<div class="flexslider">
-						<ul class="slides">
-					   	<li style="background-image: url(images/img_bg_1.jpg);">
-					   		<div class="overlay-gradient"></div>
-					   		<div class="container-fluid">
-					   			<div class="row">
-						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
-						   				<div class="slider-text-inner">
-						   					<div class="desc">
-													<h2>Air Free HTML5 Bootstrap Template</h2>
-													<p>Ink is a free html5 bootstrap and a multi-purpose template perfect for any type of websites. A combination of a minimal and modern design template. The features are big slider on homepage, smooth animation, product listing and many more</p>
-						   					</div>
-						   				</div>
-						   			</div>
-						   		</div>
-					   		</div>
-					   	</li>
-					   	<li style="background-image: url(images/img_bg_2.jpg);">
-					   		<div class="overlay-gradient"></div>
-					   		<div class="container-fluid">
-					   			<div class="row">
-						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
-						   				<div class="slider-text-inner">
-						   					<div class="desc">
-													<h2>Ink Free HTML5 Bootstrap Template</h2>
-													<p>Ink is a free html5 bootstrap and a multi-purpose template perfect for any type of websites. A combination of a minimal and modern design template. The features are big slider on homepage, smooth animation, product listing and many more</p>
-						   					</div>
-						   				</div>
-						   			</div>
-						   		</div>
-					   		</div>
-					   	</li>
-					   	<li style="background-image: url(images/img_bg_3.jpg);">
-					   		<div class="overlay-gradient"></div>
-					   		<div class="container-fluid">
-					   			<div class="row">
-						   			<div class="col-md-12 col-md-offset-0 col-md-pull-10 slider-text slider-text-bg">
-						   				<div class="slider-text-inner">
-						   					<div class="desc">
-													<h2>Travel Free HTML5 Bootstrap Template</h2>
-													<p>Ink is a free html5 bootstrap and a multi-purpose template perfect for any type of websites. A combination of a minimal and modern design template. The features are big slider on homepage, smooth animation, product listing and many more</p>
-						   					</div>
-						   				</div>
-						   			</div>
-						   		</div>
-					   		</div>
-					   	</li>		   	
-					  	</ul>
-				  	</div>
-				</aside>
+			</div>
+			<div class="row" style="margin-top: 40px;">
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center animate-box" data-animate-effect="fadeInUp" style="margin-bottom: 50px;">
+					<div class="about-item">
+						<h4 style="margin-bottom: 20px; color: white; font-size: 18px;">Solving (hard) problems</h4>
+						<div class="about-image" style="width: 300px; margin: 0 auto;">
+							<img src="images/math_blackboard.jpg" alt="Thing 1" style="width: 100%; height: auto; display: block;">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center animate-box" data-animate-effect="fadeInUp" style="margin-bottom: 50px;">
+					<div class="about-item">
+						<h4 style="margin-bottom: 20px; color: white; font-size: 18px;">Creating stuff</h4>
+						<div class="about-image" style="width: 300px; margin: 0 auto;">
+							<img src="images/painting.jpg" alt="Thing 2" style="width: 100%; height: auto; display: block;">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center animate-box" data-animate-effect="fadeInUp" style="margin-bottom: 50px;">
+					<div class="about-item">
+						<h4 style="margin-bottom: 20px; color: white; font-size: 18px;">Teaching and public speaking</h4>
+						<div class="about-image" style="width: 300px; margin: 0 auto;">
+							<img src="images/conference.jpg" alt="Thing 3" style="width: 100%; height: auto; display: block;">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center animate-box" data-animate-effect="fadeInUp" style="margin-bottom: 50px;">
+					<div class="about-item">
+						<h4 style="margin-bottom: 20px; color: white; font-size: 18px;">Working with people on meaningful projects</h4>
+						<div class="about-image" style="width: 300px; margin: 0 auto;">
+							<img src="images/ens-2.jpg" alt="Thing 4" style="width: 100%; height: auto; display: block;">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center animate-box" data-animate-effect="fadeInUp" style="margin-bottom: 50px;">
+					<div class="about-item">
+						<h4 style="margin-bottom: 20px; color: white; font-size: 18px;">Learning new things</h4>
+						<div class="about-image" style="width: 300px; margin: 0 auto;">
+							<img src="images/ulm.jpg" alt="Thing 4" style="width: 100%; height: auto; display: block;">
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 text-center animate-box" data-animate-effect="fadeInUp" style="margin-bottom: 50px;">
+					<div class="about-item">
+						<h4 style="margin-bottom: 20px; color: white; font-size: 18px;">Pushing my limits</h4>
+						<div class="about-image" style="width: 300px; margin: 0 auto;">
+							<img src="images/parachute.jpg" alt="Thing 5" style="width: 100%; height: auto; display: block;">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -428,7 +544,7 @@
 	<script>
 	window.addEventListener("load", async () => {
 		// Mobile-specific fix: Ensure proper height calculation
-		if (window.innerWidth <= 768) {
+		if (window.innerWidth <= 1024) { // Include iPad Mini and other tablets
 			// Force proper height for mobile hero section
 			const heroElement = document.getElementById('fh5co-header');
 			const jsFullHeightElements = document.querySelectorAll('.js-fullheight');

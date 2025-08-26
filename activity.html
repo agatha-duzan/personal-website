@@ -64,7 +64,7 @@
 
 	<!-- Mobile navigation fix -->
 	<style>
-		@media (max-width: 768px) {
+		@media (max-width: 1024px) { /* Include iPad Mini and other tablets */
 			/* Fix for pages with fixed navigation - add top padding */
 			#fh5co-portfolio,
 			#fh5co-blog,
@@ -77,6 +77,19 @@
 			/* Reduce heading size on mobile by 30% */
 			h2.cool-font {
 				font-size: 5.6rem !important;
+			}
+		}
+		
+		/* Force desktop navigation on iPad Mini and larger */
+		@media (min-width: 768px) {
+			/* Hide hamburger menu on iPad Mini and larger */
+			.fh5co-nav-toggle {
+				display: none !important;
+			}
+			
+			/* Show desktop menu on iPad Mini and larger */
+			.fh5co-nav .menu-1 {
+				display: block !important;
 			}
 		}
 	</style>
