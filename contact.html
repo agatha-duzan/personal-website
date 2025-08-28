@@ -79,21 +79,29 @@
 			}
 		}
 		
-		/* Force desktop navigation on iPad Mini and larger */
-		@media (min-width: 768px) {
-			/* Hide hamburger menu on iPad Mini and larger */
-			.fh5co-nav-toggle {
-				display: none !important;
-			}
-			
-			/* Show desktop menu on iPad Mini and larger */
-			.fh5co-nav .menu-1 {
-				display: block !important;
-			}
+	/* Force desktop navigation on iPad Mini and larger */
+	@media (min-width: 768px) {
+		/* Hide hamburger menu on iPad Mini and larger */
+		.fh5co-nav-toggle {
+			display: none !important;
 		}
-	</style>
-
-	<!-- Modernizr JS -->
+		
+		/* Show desktop menu on iPad Mini and larger */
+		.fh5co-nav .menu-1 {
+			display: block !important;
+		}
+	}
+	
+	/* Logo hover effect */
+	#fh5co-logo img {
+		content: url('images/logo_agatha.jpg');
+		transition: filter 1s ease;
+	}
+	
+	#fh5co-logo img:hover {
+		content: url('images/logo_agatha_pink.jpg');
+	}
+	</style>	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>

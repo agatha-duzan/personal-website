@@ -92,6 +92,106 @@
 				display: block !important;
 			}
 		}
+		
+		/* Read More link hover styling */
+		.stuff li a {
+			transition: color 0.3s ease;
+		}
+		
+		.stuff li a:hover {
+			color: #ff0080 !important; /* Same pink as About me button hover */
+			text-decoration: none;
+		}
+		
+		/* Two-column layout for medium tablets (iPad Mini, iPad Air) */
+		@media (min-width: 768px) and (max-width: 991px) {
+			.col-md-4 {
+				width: 50% !important;
+				float: left !important;
+			}
+			
+			/* Clear floats every 2 items to prevent wrapping issues */
+			.col-md-4:nth-child(2n+1) {
+				clear: left !important;
+			}
+			
+			/* Add consistent margin bottom for spacing */
+			.col-md-4 {
+				margin-bottom: -20px !important;
+			}
+		}
+		
+		/* Reduce spacing between project cards for all devices */
+		.col-md-4 {
+			margin-bottom: -20px !important;
+		}
+		
+		/* Logo hover effect */
+		#fh5co-logo img {
+			content: url('images/logo_agatha.jpg');
+			transition: filter 1s ease;
+		}
+		
+		#fh5co-logo img:hover {
+			content: url('images/logo_agatha_pink.jpg');
+		}
+		
+		/* Square project card images */
+		.blog-bg {
+			width: 100%;
+			height: 0;
+			padding-bottom: 100%; /* Creates a 1:1 aspect ratio (square) */
+			background-size: cover !important;
+			background-position: center !important;
+			background-repeat: no-repeat !important;
+			display: block;
+			position: relative;
+		}
+		
+		/* Resume link styling */
+		.resume-link {
+			color: #ff9900 !important; /* Same orange as About me button */
+			text-decoration: underline;
+			font-weight: bold;
+			transition: color 0.3s ease;
+		}
+		
+		.resume-link:hover {
+			color: #ff0080 !important; /* Same pink as About me button hover */
+			text-decoration: underline;
+		}
+		
+		.resume-link:visited {
+			color: #ff9900 !important; /* Keep orange even after visiting */
+		}
+		
+		.resume-link:visited:hover {
+			color: #ff0080 !important; /* Pink on hover even after visiting */
+		}
+		
+		/* Smaller GitHub buttons for projects page - 2/3 of default size */
+		.btn-social.github {
+			width: 40px !important;
+			height: 40px !important;
+			line-height: 40px !important;
+			margin: 0 !important;
+		}
+		
+		.btn-social.github svg {
+			width: 45px !important;
+			height: 45px !important;
+		}
+		
+		/* Reduce spacing in project card footer */
+		.stuff {
+			margin-top: -10px !important;
+			margin-bottom: -10px !important;
+		}
+		
+		.stuff li {
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+		}
 	</style>
 
 	<!-- Modernizr JS -->
@@ -131,103 +231,42 @@
 
 	<div id="fh5co-portfolio">
 		<div class="container">
-			<div class="row animate-box">
+			<div class="row animate-box" style="margin-bottom: 30px;">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2 class="cool-font" style="font-size: 8rem;">
+					<h2 class="cool-font" style="font-size: 8rem; margin-bottom: -50px;">
 						Activity
 					</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-1.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Activity 1</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/aws_pitch.jpg);"></div>
+						<div class="blog-text">
+							<span class="posted_on">TBD</span>
+							<h3>TITLE</h3>
+							<p>
+								DESCRIPTION
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
+								<li><a href="pdfs/gridoo_aws_pitch.pdf" target="_blank" rel="noopener noreferrer">LINK<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-2.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Activity 2</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-3.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Activity 3</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-5.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Activity 4</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-4.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Activity 5</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-6.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Activity 6</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/aws_pitch.jpg);"></div>
+						<div class="blog-text">
+							<span class="posted_on">TBD</span>
+							<h3>TITLE</h3>
+							<p>
+								DESCRIPTION
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
+								<li><a href="pdfs/gridoo_aws_pitch.pdf" target="_blank" rel="noopener noreferrer">LINK<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 			</div>

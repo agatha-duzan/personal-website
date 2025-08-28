@@ -92,6 +92,106 @@
 				display: block !important;
 			}
 		}
+		
+		/* Read More link hover styling */
+		.stuff li a {
+			transition: color 0.3s ease;
+		}
+		
+		.stuff li a:hover {
+			color: #ff0080 !important; /* Same pink as About me button hover */
+			text-decoration: none;
+		}
+		
+		/* Two-column layout for medium tablets (iPad Mini, iPad Air) */
+		@media (min-width: 768px) and (max-width: 991px) {
+			.col-md-4 {
+				width: 50% !important;
+				float: left !important;
+			}
+			
+			/* Clear floats every 2 items to prevent wrapping issues */
+			.col-md-4:nth-child(2n+1) {
+				clear: left !important;
+			}
+			
+			/* Add consistent margin bottom for spacing */
+			.col-md-4 {
+				margin-bottom: -20px !important;
+			}
+		}
+		
+		/* Reduce spacing between project cards for all devices */
+		.col-md-4 {
+			margin-bottom: -20px !important;
+		}
+		
+		/* Logo hover effect */
+		#fh5co-logo img {
+			content: url('images/logo_agatha.jpg');
+			transition: filter 1s ease;
+		}
+		
+		#fh5co-logo img:hover {
+			content: url('images/logo_agatha_pink.jpg');
+		}
+		
+		/* Square project card images */
+		.blog-bg {
+			width: 100%;
+			height: 0;
+			padding-bottom: 100%; /* Creates a 1:1 aspect ratio (square) */
+			background-size: cover !important;
+			background-position: center !important;
+			background-repeat: no-repeat !important;
+			display: block;
+			position: relative;
+		}
+		
+		/* Resume link styling */
+		.resume-link {
+			color: #ff9900 !important; /* Same orange as About me button */
+			text-decoration: underline;
+			font-weight: bold;
+			transition: color 0.3s ease;
+		}
+		
+		.resume-link:hover {
+			color: #ff0080 !important; /* Same pink as About me button hover */
+			text-decoration: underline;
+		}
+		
+		.resume-link:visited {
+			color: #ff9900 !important; /* Keep orange even after visiting */
+		}
+		
+		.resume-link:visited:hover {
+			color: #ff0080 !important; /* Pink on hover even after visiting */
+		}
+		
+		/* Smaller GitHub buttons for projects page - 2/3 of default size */
+		.btn-social.github {
+			width: 40px !important;
+			height: 40px !important;
+			line-height: 40px !important;
+			margin: 0 !important;
+		}
+		
+		.btn-social.github svg {
+			width: 45px !important;
+			height: 45px !important;
+		}
+		
+		/* Reduce spacing in project card footer */
+		.stuff {
+			margin-top: -10px !important;
+			margin-bottom: -10px !important;
+		}
+		
+		.stuff li {
+			margin-top: 0 !important;
+			margin-bottom: 0 !important;
+		}
 	</style>
 
 	<!-- Modernizr JS -->
@@ -131,103 +231,171 @@
 
 	<div id="fh5co-portfolio">
 		<div class="container">
-			<div class="row animate-box">
+			<div class="row animate-box" style="margin-bottom: 30px;">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2 class="cool-font" style="font-size: 8rem;">
+					<h2 class="cool-font" style="font-size: 8rem; margin-bottom: -50px;">
 						Projects
 					</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-1.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Project 1</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/os_harm.jpg);"></div>
+						<div class="blog-text">
+							<h3>OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents</h3>
+							<p>
+								Presented at the ICML 2025 Workshop on Computer Use Agents: <a href="https://drive.google.com/file/d/1F9ZxDFXvdOpe_zqEfr9MpoSyIYY9PXpC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-link">see video</a>.
+								Currently under revision for NeurIPS 2025.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/tml-epfl/os-harm" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="https://arxiv.org/abs/2506.14866" target="_blank" rel="noopener noreferrer">Read on arXiv<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-2.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Project 2</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/stem_gpt.jpg);"></div>
+						<div class="blog-text">
+							<h3>STEM-GPT: Your Future AI Teaching Assistant?</h3>
+							<p>An open-source AI assistant for STEM questions, aligned with Direct Preference Optimization and Supervised Fine-Tuning.</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/agatha-duzan/STEM-GPT" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="pdfs/stem_gpt.pdf" target="_blank" rel="noopener noreferrer">Read full report<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-3.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Project 3</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/autoformalization.png);"></div>
+						<div class="blog-text">
+							<h3>Autoformalization for mathematical reasoning in LLMs</h3>
+							<p>
+								In AI for mathematics, the hardest step is translating informal problem statements into formal language.
+								I built hypothesis decomposition and retrieval pipelines that improve LLM performance on this task.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/agatha-duzan/autoformalization_with_hypothesis" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="pdfs/ai_math.pdf" target="_blank" rel="noopener noreferrer">Read full report<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-5.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Project 4</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/unlearning.jpg);"></div>
+						<div class="blog-text">
+							<h3>Cheaper unlearning using sparse autoencoders</h3>
+							<p>
+								4th prize @ Reprogramming AI Models Hackathon 2024.
+								Unlearning harmful capabilities in LLMs while preserving general ones, in a cheaper and more interpretable way.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/agatha-duzan/feature-intervention-for-unlearning" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="pdfs/sparse_autoencoders.pdf" target="_blank" rel="noopener noreferrer">Read full report<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-4.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Project 5</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/cme.png);"></div>
+						<div class="blog-text">
+							<h3>CME detection onboard Venus Express</h3>
+							<p>
+								Collaboration with the European Space Agency.
+								Machine learning models to detect solar events from spacecraft sensor data.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/agatha-duzan/ml-project-2-ml4esa" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="pdfs/esa_cme_detection.pdf" target="_blank" rel="noopener noreferrer">Read full report<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="fh5co-portfolio animate-box">
-						<a href="#">
-							<div class="portfolio-entry" style="background-image: url(images/portfolio-6.jpg);"></div>
-							<div class="portfolio-text">
-								<h3>Project 6</h3>
-								<ul class="stuff">
-									<li><i class="icon-heart2"></i>200</li>
-									<li><i class="icon-eye2"></i>248</li>
-									<li><i class="icon-download3"></i>240</li>
-								</ul>
-							</div> 
-						</a>
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/aws_pitch.jpg);"></div>
+						<div class="blog-text">
+							<h3>GRIDOO: AI for renewable energy forecasting</h3>
+							<p>
+								2nd prize @ AWS x Start Lausanne Hackathon 2025.
+								AI forecasting solution and startup concept that predicts renewable energy oversupply with high granularity.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
+								<li><a href="pdfs/gridoo_aws_pitch.pdf" target="_blank" rel="noopener noreferrer">See our pitch deck<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/climate_yt.jpg);"></div>
+						<div class="blog-text">
+							<h3>Climate change on Youtube</h3>
+							<p>
+								Data analysis of climate change content on YouTube. 
+								Explored video trends, interest surges, sentiment analysis, and channel influence to reveal how public engagement shifts over time.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/agatha-duzan/ada-2023-project-fadamily" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="https://agatha-duzan.github.io/" target="_blank" rel="noopener noreferrer">Read full data story<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/latent_knowledge.jpg);"></div>
+						<div class="blog-text">
+							<h3>Extending Latent Knowledge Discovery in LLMs</h3>
+							<p>
+								1st prize @ AI Testing Hackathon 2022.
+								Extended the Contrast Consistent Search method to test model latent knowledge under ambiguity, showing good generalization.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
+								<li><a href="https://apartresearch.com/news/results-from-the-ai-testing-hackathon#:~:text=it%20all%20possible.-,Discovering%20Latent%20Knowledge%20In%20Language%20Models%20Without%20Supervision%20%2D%20Extensions%20And%20Testing,-By%20Agatha%20Duzan" target="_blank" rel="noopener noreferrer">Read project summary<i class="icon-arrow-right22"></i></a></li>
+							</ul>
+						</div> 
 					</div>
 				</div>
 			</div>
