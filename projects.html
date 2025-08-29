@@ -80,14 +80,26 @@
 			}
 		}
 		
-		/* Force desktop navigation on iPad Mini and larger */
-		@media (min-width: 768px) {
+		/* Force desktop navigation on iPad Mini and larger - EXPANDED for iPad Air */
+		@media (min-width: 768px), (min-device-width: 768px) {
 			/* Hide hamburger menu on iPad Mini and larger */
 			.fh5co-nav-toggle {
 				display: none !important;
 			}
 			
 			/* Show desktop menu on iPad Mini and larger */
+			.fh5co-nav .menu-1 {
+				display: block !important;
+			}
+		}
+		
+		/* Specific iPad Air fix - force desktop navigation */
+		@media screen and (device-width: 820px) and (device-height: 1180px),
+		       screen and (device-width: 1180px) and (device-height: 820px) {
+			.fh5co-nav-toggle {
+				display: none !important;
+			}
+			
 			.fh5co-nav .menu-1 {
 				display: block !important;
 			}
@@ -103,27 +115,81 @@
 			text-decoration: none;
 		}
 		
-		/* Two-column layout for medium tablets (iPad Mini, iPad Air) */
-		@media (min-width: 768px) and (max-width: 991px) {
-			.col-md-4 {
+		/* Two-column layout for ALL tablets - comprehensive fix */
+		@media (min-width: 768px) and (max-width: 1199px) {
+			/* Force 2-column layout */
+			#fh5co-portfolio .col-md-4 {
 				width: 50% !important;
 				float: left !important;
+				display: block !important;
 			}
 			
-			/* Clear floats every 2 items to prevent wrapping issues */
-			.col-md-4:nth-child(2n+1) {
+			/* Clear floats every 2 items */
+			#fh5co-portfolio .col-md-4:nth-child(2n+1) {
 				clear: left !important;
 			}
 			
-			/* Add consistent margin bottom for spacing */
-			.col-md-4 {
+			/* Spacing */
+			#fh5co-portfolio .col-md-4 {
 				margin-bottom: -20px !important;
+			}
+			
+			/* Disable flexbox on tablets */
+			#fh5co-portfolio .row:not(.animate-box) {
+				display: block !important;
+			}
+		}
+		
+		/* Specific iPad Air targeting - both orientations */
+		@media screen and (device-width: 820px) and (device-height: 1180px),
+		       screen and (device-width: 1180px) and (device-height: 820px),
+		       screen and (width: 820px) {
+			div#fh5co-portfolio .container .row .col-md-4 {
+				width: 50% !important;
+				float: left !important;
+				display: block !important;
+			}
+			
+			div#fh5co-portfolio .container .row .col-md-4:nth-child(2n+1) {
+				clear: left !important;
 			}
 		}
 		
 		/* Reduce spacing between project cards for all devices */
 		.col-md-4 {
 			margin-bottom: -20px !important;
+		}
+		
+		/* Equal height cards using flexbox - LARGE DESKTOP ONLY */
+		@media (min-width: 1200px) {
+			/* Desktop: 3 columns per row - only for card rows, not heading */
+			#fh5co-portfolio .row:not(.animate-box) {
+				display: flex !important;
+				flex-wrap: wrap;
+			}
+			
+			#fh5co-portfolio .col-md-4 {
+				display: flex !important;
+				flex-direction: column;
+				float: none !important;
+				width: 33.33333% !important;
+			}
+			
+			#fh5co-portfolio .fh5co-blog {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+			
+			#fh5co-portfolio .blog-text {
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			#fh5co-portfolio .stuff {
+				margin-top: auto;
+			}
 		}
 		
 		/* Logo hover effect */

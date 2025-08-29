@@ -80,14 +80,26 @@
 			}
 		}
 		
-		/* Force desktop navigation on iPad Mini and larger */
-		@media (min-width: 768px) {
+		/* Force desktop navigation on iPad Mini and larger - EXPANDED for iPad Air */
+		@media (min-width: 768px), (min-device-width: 768px) {
 			/* Hide hamburger menu on iPad Mini and larger */
 			.fh5co-nav-toggle {
 				display: none !important;
 			}
 			
 			/* Show desktop menu on iPad Mini and larger */
+			.fh5co-nav .menu-1 {
+				display: block !important;
+			}
+		}
+		
+		/* Specific iPad Air fix - force desktop navigation */
+		@media screen and (device-width: 820px) and (device-height: 1180px),
+		       screen and (device-width: 1180px) and (device-height: 820px) {
+			.fh5co-nav-toggle {
+				display: none !important;
+			}
+			
 			.fh5co-nav .menu-1 {
 				display: block !important;
 			}
@@ -103,27 +115,81 @@
 			text-decoration: none;
 		}
 		
-		/* Two-column layout for medium tablets (iPad Mini, iPad Air) */
-		@media (min-width: 768px) and (max-width: 991px) {
-			.col-md-4 {
+		/* Two-column layout for ALL tablets - comprehensive fix */
+		@media (min-width: 768px) and (max-width: 1199px) {
+			/* Force 2-column layout */
+			#fh5co-portfolio .col-md-4 {
 				width: 50% !important;
 				float: left !important;
+				display: block !important;
 			}
 			
-			/* Clear floats every 2 items to prevent wrapping issues */
-			.col-md-4:nth-child(2n+1) {
+			/* Clear floats every 2 items */
+			#fh5co-portfolio .col-md-4:nth-child(2n+1) {
 				clear: left !important;
 			}
 			
-			/* Add consistent margin bottom for spacing */
-			.col-md-4 {
+			/* Spacing */
+			#fh5co-portfolio .col-md-4 {
 				margin-bottom: -20px !important;
+			}
+			
+			/* Disable flexbox on tablets */
+			#fh5co-portfolio .row:not(.animate-box) {
+				display: block !important;
+			}
+		}
+		
+		/* Specific iPad Air targeting - both orientations */
+		@media screen and (device-width: 820px) and (device-height: 1180px),
+		       screen and (device-width: 1180px) and (device-height: 820px),
+		       screen and (width: 820px) {
+			div#fh5co-portfolio .container .row .col-md-4 {
+				width: 50% !important;
+				float: left !important;
+				display: block !important;
+			}
+			
+			div#fh5co-portfolio .container .row .col-md-4:nth-child(2n+1) {
+				clear: left !important;
 			}
 		}
 		
 		/* Reduce spacing between project cards for all devices */
 		.col-md-4 {
 			margin-bottom: -20px !important;
+		}
+		
+		/* Equal height cards using flexbox - LARGE DESKTOP ONLY */
+		@media (min-width: 1200px) {
+			/* Desktop: 3 columns per row - only for card rows, not heading */
+			#fh5co-portfolio .row:not(.animate-box) {
+				display: flex !important;
+				flex-wrap: wrap;
+			}
+			
+			#fh5co-portfolio .col-md-4 {
+				display: flex !important;
+				flex-direction: column;
+				float: none !important;
+				width: 33.33333% !important;
+			}
+			
+			#fh5co-portfolio .fh5co-blog {
+				display: flex;
+				flex-direction: column;
+				height: 100%;
+			}
+			
+			#fh5co-portfolio .blog-text {
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+			}
+			
+			#fh5co-portfolio .stuff {
+				margin-top: auto;
+			}
 		}
 		
 		/* Logo hover effect */
@@ -246,7 +312,7 @@
 							<span class="posted_on">Sep 24th 2025</span>
 							<h3>AI TALK - Resilient by Design: Switzerland in the Age of AI</h3>
 							<p>
-								Invited panelist at Swiss AI Weeks 2025, 
+								Invited panelist at the Swiss AI Weeks 2025, 
 								joining voices from academia and industry to discuss the future of AI in Switzerland.
 							</p>
 							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
@@ -280,7 +346,7 @@
 							<h3>Podcast Interview</h3>
 							<p>
 								Guest on L'Heure H, a podcast series by EPFL and Swiss media RTS. 
-								In this 45-minute interview, I shared my journey, views on AI safety, and the work of Safe AI Lausanne.
+								In this 45-minute interview, I share my journey, views on AI safety, and my work as president of Safe AI Lausanne.
 							</p>
 							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
 								<li><a href="https://open.spotify.com/episode/5NCkD0KbanfhBEL1bZfMWk?si=rNffSe76QImv4CTzfZskdw" target="_blank" rel="noopener noreferrer">Listen on Spotify <i class="icon-arrow-right22"></i></a></li>
@@ -291,31 +357,43 @@
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<div class="blog-bg" style="background-image: url(images/aws_pitch.jpg);"></div>
+						<div class="blog-bg" style="background-image: url(images/bootcamp_CH.jpg);"></div>
 						<div class="blog-text">
-							<span class="posted_on">TBD</span>
-							<h3>TITLE</h3>
+							<span class="posted_on">September 2023</span>
+							<h3>Swiss AI Safety Camp</h3>
 							<p>
-								DESCRIPTION
+								Co-led the bootcamp, where I designed and taught the AI Governance curriculum 
+								and mentored participants throughout their projects.
+							</p>
+						</div> 
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="fh5co-blog animate-box">
+						<div class="blog-bg" style="background-image: url(images/math_comp-2.jpg);"></div>
+						<div class="blog-text">
+							<span class="posted_on">August 2023</span>
+							<h3>3rd Place - International Math & Logic Games 2023</h3>
+							<p>
+								Represented France at the international finals in Poland after qualifying as a national finalist. 
+								Placed 3rd in the university-level category.
 							</p>
 							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
-								<li><a href="pdfs/gridoo_aws_pitch.pdf" target="_blank" rel="noopener noreferrer">LINK<i class="icon-arrow-right22"></i></a></li>
+								<li><a href="images/problem-18.png" target="_blank" rel="noopener noreferrer">Try my favorite problem<i class="icon-arrow-right22"></i></a></li>
 							</ul>
 						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<div class="blog-bg" style="background-image: url(images/aws_pitch.jpg);"></div>
+						<div class="blog-bg" style="background-image: url(images/ice_skating_2017.jpg);"></div>
 						<div class="blog-text">
-							<span class="posted_on">TBD</span>
-							<h3>TITLE</h3>
+							<span class="posted_on">March 2017</span>
+							<h3>2nd Place - French National Synchronized Skating Championship 2017</h3>
 							<p>
-								DESCRIPTION
+								Skated with the Compiègne Synchronized Skating Club (Novice A category) 
+								at the French Nationals in Valenciennes, winning the silver medal.
 							</p>
-							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
-								<li><a href="pdfs/gridoo_aws_pitch.pdf" target="_blank" rel="noopener noreferrer">LINK<i class="icon-arrow-right22"></i></a></li>
-							</ul>
 						</div> 
 					</div>
 				</div>

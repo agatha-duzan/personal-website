@@ -192,11 +192,40 @@
       color: #ff0080 !important; /* Pink on hover even after visiting */
     }
     
+    /* Featured section links - remove glow effect */
+    #fh5co-blog .resume-link:hover {
+      text-shadow: none !important;
+    }
+    
+    /* Featured section responsive padding */
+    #fh5co-blog {
+      padding-top: 50px; /* Default for desktop - matches internal spacing */
+    }
+    
+    @media (max-width: 767px) {
+      #fh5co-blog {
+        padding-top: 25px !important; /* Reduced padding for mobile - matches internal spacing */
+      }
+    }
+    
+    @media (min-width: 768px) and (max-width: 991px) {
+      #fh5co-blog {
+        padding-top: 35px !important; /* Medium padding for tablets - matches internal spacing */
+      }
+    }
+    
     /* About me button sizing - prevent stretching on tablet sizes */
     .btn-demo {
       max-width: 200px !important;
       width: auto !important;
       display: inline-block !important;
+      transition: all 0.3s ease !important;
+    }
+    
+    /* About me button hover effect - match social icons */
+    .btn-demo:hover {
+      transform: translateY(-3px) !important;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
     }
     
     /* About me section responsive grid fixes */
@@ -246,6 +275,82 @@
     
     #fh5co-logo img:hover {
       content: url('images/logo_agatha_pink.jpg');
+    }
+    
+    /* Featured section responsive layout - iPad and tablet fixes */
+    /* Two-column layout for ALL tablets - comprehensive fix */
+    @media (min-width: 768px) and (max-width: 1199px) {
+      /* Force 2-column layout for featured cards */
+      #fh5co-blog .col-md-4 {
+        width: 50% !important;
+        float: left !important;
+        display: block !important;
+      }
+      
+      /* Remove the offset on tablets - both cards should be side by side */
+      #fh5co-blog .col-md-offset-2 {
+        margin-left: 0 !important;
+      }
+      
+      /* Clear floats every 2 items */
+      #fh5co-blog .col-md-4:nth-child(2n+1) {
+        clear: left !important;
+      }
+      
+      /* Spacing */
+      #fh5co-blog .col-md-4 {
+        margin-bottom: -20px !important;
+      }
+      
+      /* Disable flexbox on tablets */
+      #fh5co-blog .row:not(.animate-box) {
+        display: block !important;
+      }
+    }
+    
+    /* Specific iPad Air targeting - both orientations */
+    @media screen and (device-width: 820px) and (device-height: 1180px),
+           screen and (device-width: 1180px) and (device-height: 820px),
+           screen and (width: 820px) {
+      div#fh5co-blog .container .row .col-md-4 {
+        width: 50% !important;
+        float: left !important;
+        display: block !important;
+      }
+      
+      /* Remove offset on iPad Air specifically */
+      div#fh5co-blog .container .row .col-md-offset-2 {
+        margin-left: 0 !important;
+      }
+      
+      div#fh5co-blog .container .row .col-md-4:nth-child(2n+1) {
+        clear: left !important;
+      }
+    }
+    
+    /* Smaller GitHub buttons for featured section only - 2/3 of default size */
+    #fh5co-blog .btn-social.github {
+      width: 40px !important;
+      height: 40px !important;
+      line-height: 40px !important;
+      margin: 0 !important;
+    }
+    
+    #fh5co-blog .btn-social.github svg {
+      width: 45px !important;
+      height: 45px !important;
+    }
+    
+    /* Square featured card images - same as projects page */
+    #fh5co-blog .blog-bg {
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%; /* Creates a 1:1 aspect ratio (square) */
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      display: block;
+      position: relative;
     }
   </style>
 
@@ -450,45 +555,43 @@
 			<div class="row animate-box">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>Featured</h2>
-					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+					<p style="color: black;">A glimpse of my recent <strong><a href="projects.html" class="resume-link">projects</a></strong> and <strong><a href="activity.html" class="resume-link">activities</a></strong></p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 col-md-offset-2">
 					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/blog-1.jpg);"></a>
+						<div class="blog-bg" style="background-image: url(images/os_harm.jpg);"></div>
 						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">OS-Harm</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
+							<h3>OS-Harm: A Benchmark for Measuring Safety of Computer Use Agents</h3>
+							<p>
+								Presented at the ICML 2025 Workshop on Computer Use Agents. 
+								Currently under revision for NeurIPS 2025.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: space-between; align-items: center;">
+								<li>
+									<a class="btn-social github" href="https://github.com/tml-epfl/os-harm" target="_blank" rel="noopener noreferrer">
+										<svg viewBox="0 0 98 96" xmlns="http://www.w3.org/2000/svg">
+											<path fill="currentColor" d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"/>
+										</svg>
+									</a>
+								</li>
+								<li><a href="https://arxiv.org/abs/2506.14866" target="_blank" rel="noopener noreferrer">Read on arXiv<i class="icon-arrow-right22"></i></a></li>
 							</ul>
 						</div> 
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/blog-2.jpg);"></a>
+						<div class="blog-bg" style="background-image: url(images/swiss_ai_talk.jpeg);"></div>
 						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Swiss AI panel</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
-							</ul>
-						</div> 
-					</div>
-				</div>
-				<div class="col-md-4">
-					<div class="fh5co-blog animate-box">
-						<a href="#" class="blog-bg" style="background-image: url(images/blog-3.jpg);"></a>
-						<div class="blog-text">
-							<span class="posted_on">Feb. 15th 2016</span>
-							<h3><a href="#">Blog 1</a></h3>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-							<ul class="stuff">
-								<li><a href="#">Read More<i class="icon-arrow-right22"></i></a></li>
+							<h3>AI TALK - Resilient by Design: Switzerland in the Age of AI</h3>
+							<p>
+								Invited panelist at the Swiss AI Weeks 2025, 
+								joining voices from academia and industry to discuss the future of AI in Switzerland.
+							</p>
+							<ul class="stuff" style="display: flex; justify-content: flex-end; align-items: center;">
+								<li><a href="https://swiss-ai-weeks.ch/hacks-and-events/AI-TALK-240925" target="_blank" rel="noopener noreferrer">Event page<i class="icon-arrow-right22"></i></a></li>
 							</ul>
 						</div> 
 					</div>
