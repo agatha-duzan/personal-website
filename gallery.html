@@ -1,0 +1,640 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Gallery | Agatha Duzan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="A virtual gallery showcasing artworks by Agatha Duzan." />
+	<meta name="keywords" content="Agatha Duzan gallery, Agatha Duzan art, art gallery, paintings, drawings, creative work" />
+	<meta name="author" content="Agatha Duzan" />
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+	<link rel="manifest" href="favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" href="favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="shortcut icon" href="favicons/favicon.ico">
+
+  	<!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+	<!-- 1) Playfair Display Bold 700 -->
+	<link
+	  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap"
+	  rel="stylesheet"
+	/>
+
+	<!-- 2) Lato Regular 400 & Bold 700 -->
+	<link
+	  href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+	  rel="stylesheet"
+	/>
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<style>
+		/* Force desktop navigation on iPad Mini and larger */
+		@media (min-width: 768px) {
+			.fh5co-nav-toggle { display: none !important; }
+			.fh5co-nav .menu-1 { display: block !important; }
+		}
+
+		/* Logo hover effect */
+		#fh5co-logo img {
+			content: url('images/logo_agatha.jpg');
+			transition: filter 1s ease;
+		}
+		#fh5co-logo img:hover {
+			content: url('images/logo_agatha_pink.jpg');
+		}
+
+		/* ============================================================
+		   GALLERY — single-room horizontal "walk the wall" experience
+		   ============================================================ */
+		:root {
+			--nav-h: 92px;                 /* measured at runtime */
+			--hang: clamp(200px, 50vh, 560px);  /* the height every piece hangs at */
+			--gap: clamp(48px, 9vw, 160px);     /* space between pieces */
+		}
+
+		/* Keep the page itself from scrolling; the wall scrolls horizontally */
+		html, body { height: 100%; }
+
+		.gallery-room {
+			position: relative;
+			height: 100vh;
+			overflow: hidden;
+			/* Seamless plaster-wall texture, generated in CSS so it tiles at any
+			   length. Layers: fine grain (SVG noise) + soft top-down lighting +
+			   base wall colour. */
+			background-color: #dcd5c8;
+			background-image:
+				url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.32'/%3E%3C/svg%3E"),
+				linear-gradient(180deg, #e7e1d5 0%, #dcd5c8 42%, #cfc7b8 100%);
+			background-repeat: repeat, no-repeat;
+			background-size: 300px 300px, 100% 100%;
+		}
+		/* Soft floor shadow at the base of the wall */
+		.gallery-room::after {
+			content: "";
+			position: absolute;
+			left: 0; right: 0; bottom: 0;
+			height: 22vh;
+			pointer-events: none;
+			background: linear-gradient(180deg, rgba(60,50,38,0) 0%, rgba(60,50,38,0.16) 100%);
+		}
+
+		/* The horizontal scroller */
+		.wall {
+			position: relative;
+			z-index: 1;
+			height: 100%;
+			overflow-x: auto;
+			overflow-y: hidden;
+			-webkit-overflow-scrolling: touch;
+			scrollbar-width: thin;
+			scrollbar-color: rgba(90,75,55,0.5) transparent;
+			cursor: grab;
+		}
+		.wall.grabbing { cursor: grabbing; }
+		.wall::-webkit-scrollbar { height: 8px; }
+		.wall::-webkit-scrollbar-track { background: transparent; }
+		.wall::-webkit-scrollbar-thumb {
+			background: rgba(90,75,55,0.45);
+			border-radius: 8px;
+		}
+
+		/* The row of pieces */
+		.pieces {
+			display: inline-flex;
+			align-items: center;
+			height: 100%;
+			box-sizing: border-box;
+			padding: calc(var(--nav-h) + 3.6rem) var(--gap) 6vh;
+			gap: var(--gap);
+			white-space: nowrap;
+		}
+
+		/* One artwork: frame + placard, stacked and left-aligned so the label
+		   lines up under the left edge of its frame. */
+		.piece {
+			display: inline-flex;
+			flex-direction: column;
+			align-items: flex-start;
+			flex: 0 0 auto;
+			margin: 0;
+			cursor: pointer;
+			outline: none;
+		}
+		.piece:focus-visible .frame {
+			box-shadow: 0 0 0 3px #ff0080e6, 22px 30px 42px -18px rgba(30,22,12,0.55);
+		}
+
+		/* Picture frame — the image drives its size (height fixed, width auto),
+		   so native aspect ratios are preserved and nothing is ever cropped. */
+		.frame {
+			background: linear-gradient(135deg, #6b5433 0%, #8a6d40 18%, #caa76a 50%, #7c623b 82%, #5c4930 100%);
+			padding: clamp(8px, 1vw, 16px);
+			border-radius: 2px;
+			box-shadow:
+				0 0 0 1px rgba(0,0,0,0.25),
+				22px 30px 42px -18px rgba(30,22,12,0.55);
+			transition: transform 0.35s ease, box-shadow 0.35s ease;
+		}
+		.piece:hover .frame {
+			transform: translateY(-6px);
+			box-shadow:
+				0 0 0 1px rgba(0,0,0,0.25),
+				26px 40px 54px -18px rgba(30,22,12,0.6);
+		}
+		.mat {
+			background: #f6f2ea;
+			padding: clamp(10px, 1.6vw, 26px);
+			box-shadow: inset 0 2px 7px rgba(0,0,0,0.18);
+		}
+		/* The image drives the frame: auto dimensions capped by BOTH a max
+		   height (the hang height) and a max width (so wide pieces never
+		   overflow a narrow screen). Aspect ratio is always preserved. */
+		.frame img {
+			display: block;
+			width: auto;
+			height: auto;
+			max-height: var(--hang);
+			max-width: 82vw;
+			box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+		}
+
+		/* Museum placard, always visible under the frame. Its width is pinned
+		   to the frame width in JS; text-align:left and white-space:normal let
+		   it read as a wall label. Quiet, muted, generous spacing. */
+		.placard {
+			margin-top: 16px;
+			text-align: left;
+			white-space: normal;      /* override the wall's nowrap */
+			max-width: 82vw;          /* fallback before JS pins the width */
+			color: #5b4f3d;
+		}
+		.pl-meta {
+			display: block;
+			margin-top: 5px;
+			font-size: 0.8rem;
+			letter-spacing: 0.03em;
+			color: #8a7c66;           /* small and muted */
+		}
+		.pl-about {
+			display: block;
+			margin-top: 9px;
+			max-width: 50ch;          /* cap line length so it wraps under wide frames */
+			font-size: 1.3rem;
+			line-height: 1.5;
+			color: #5b4f3d;
+		}
+
+		/* Intro line, sitting between the menu and the top of the frames.
+		   No font-family override, so it inherits the site's regular body
+		   font (not the display/accent face). */
+		.gallery-intro {
+			position: absolute;
+			top: calc(var(--nav-h) + 46px);
+			left: 0;
+			right: 0;
+			z-index: 3;
+			margin: 0;
+			padding: 0 var(--gap);
+			text-align: left;
+			pointer-events: none;
+			font-size: clamp(1.3rem, 2.55vw, 1.6rem);
+			color: #4a3f30;
+		}
+		/* The link needs clicks re-enabled (the intro line is pointer-events:none
+		   so it never blocks scrolling/dragging the wall behind it). */
+		.gallery-intro a {
+			pointer-events: auto;
+			color: #4a3f30;
+			text-decoration: underline;
+			text-underline-offset: 3px;
+			transition: color 0.25s ease;
+		}
+		.gallery-intro a:hover,
+		.gallery-intro a:focus { color: #ff0080e6; }
+		.gallery-intro .intro-sep { opacity: 0.5; }
+
+		/* ---------------- Lightbox ---------------- */
+		/* While the lightbox is open, hide the nav + hamburger so nothing
+		   overlaps the close button (the template's toggle is fixed at the
+		   top-right with z-index 2001). */
+		body.lb-open .fh5co-nav,
+		body.lb-open .fh5co-nav-toggle { display: none !important; }
+
+		.lightbox {
+			position: fixed;
+			inset: 0;
+			z-index: 3000;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 4vh 4vw;
+			background: rgba(16,12,8,0.985);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+		.lightbox.open { display: flex; opacity: 1; }
+		.lightbox figure {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.lightbox img {
+			display: block;
+			max-width: 92vw;
+			max-height: 82vh;
+			width: auto;
+			height: auto;
+			object-fit: contain;   /* never crop */
+			box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+			background: rgba(255,255,255,0.03);
+		}
+		.lightbox figcaption {
+			margin-top: 16px;
+			text-align: center;
+			color: #f2ede3;
+			font-family: "Inconsolata", Arial, sans-serif;   /* regular site font */
+		}
+		.lightbox figcaption .p-title {
+			font-size: 1.25rem;
+		}
+		.lightbox figcaption .p-meta {
+			display: block;
+			margin-top: 4px;
+			font-size: 0.78rem;
+			letter-spacing: 0.09em;
+			text-transform: uppercase;
+			color: #c9beac;
+		}
+		.lb-close {
+			position: fixed;
+			top: 18px;
+			right: 22px;
+			z-index: 3001;
+			width: 48px;
+			height: 48px;
+			border: none;
+			border-radius: 50%;
+			background: rgba(255,255,255,0.12);
+			color: #fff;
+			font-size: 26px;
+			line-height: 48px;
+			text-align: center;
+			cursor: pointer;
+			transition: background 0.25s ease, transform 0.25s ease;
+		}
+		.lb-close:hover { background: #ff0080e6; transform: rotate(90deg); }
+		.lb-spinner {
+			position: absolute;
+			width: 42px; height: 42px;
+			border: 3px solid rgba(255,255,255,0.25);
+			border-top-color: #fff;
+			border-radius: 50%;
+			animation: lb-spin 0.8s linear infinite;
+		}
+		.lightbox.loaded .lb-spinner { display: none; }
+		@keyframes lb-spin { to { transform: rotate(360deg); } }
+
+		@media (max-width: 767px) {
+			:root { --hang: clamp(170px, 42vh, 360px); }
+		}
+	</style>
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+
+	<div class="fh5co-loader"></div>
+
+	<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="fh5co-logo"><a href="index.html"><img src="images/logo_agatha.jpg" alt="Agatha Duzan"></a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="projects.html">Projects</a></li>
+								<li><a href="activity.html">Activity</a></li>
+								<li class="active"><a href="gallery.html">Gallery</a></li>
+								<li><a href="blog.html">Blog</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<!-- ============ THE GALLERY ROOM ============ -->
+		<section class="gallery-room" id="fh5co-gallery">
+			<p class="gallery-intro">A few favorites. Scroll along the wall, or </span><a href="full_gallery.html">browse the full gallery</a></p>
+			<div class="wall" id="wall">
+				<div class="pieces" id="pieces"><!-- rendered from PIECES config --></div>
+			</div>
+		</section>
+
+		<!-- ============ LIGHTBOX ============ -->
+		<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer">
+			<button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+			<div class="lb-spinner" id="lbSpinner"></div>
+			<figure>
+				<img id="lbImg" alt="">
+				<figcaption id="lbCaption"></figcaption>
+			</figure>
+		</div>
+	</div>
+
+	<script>
+	/* ============================================================
+	   GALLERY CONTENT — one config array. Add / reorder pieces here.
+	   Each piece:
+	     web    – optimised image shown on the wall (images/art/web/*)
+	     full   – full-resolution original shown in the lightbox
+	     title  – piece title (shown on the placard)
+	     medium – e.g. "Oil on canvas", "Charcoal on paper"  (optional)
+	     year   – e.g. "2025"                                 (optional)
+	   TODO: fill in `medium` and `year` for each piece below.
+	   ============================================================ */
+	const PIECES = [
+		{
+			web:  "images/art/web/le_gouffre.jpg",
+			full: "images/art/le_gouffre.JPEG",
+			title: "Le Gouffre",
+			medium: "",                                   // e.g. "Acrylic on canvas"
+			dimensions: "",                               // e.g. "80 × 120 cm"
+			year: "",                                     // optional
+			about: "My biggest painting to date (80x120cm). It was inspired by Baudelaire's poem 'Le Gouffre' "
+		},
+		{
+			web:  "images/art/web/visage_005.jpg",
+			full: "images/art/visage_005.JPEG",
+			title: "Visage 005",
+			medium: "",
+			dimensions: "",
+			year: "",
+			about: "A face study, acryclics"
+		},
+		{
+			web:  "images/art/web/raices_peruanas.jpg",
+			full: "images/art/raices_peruanas.JPEG",
+			title: "Raíces Peruanas",
+			medium: "",
+			dimensions: "",
+			year: "",
+			about: "Work in progress. I tried a new approach: starting from random strokes and colors, then painting the things I see emerging on the canvas. Like emulating a diffusion model by hand"
+		},
+		{
+			web:  "images/art/web/model_sesh_june_30.jpg",
+			full: "images/art/model_sesh_june_30.PNG",
+			title: "Model Session",
+			medium: "",
+			dimensions: "",
+			year: "",
+			about: "Recent live model session. Experimenting with atypic palettes"
+		},
+		{
+			web:  "images/art/web/louvres_pavillon.jpg",
+			full: "images/art/louvres_pavillon.JPEG",
+			title: "Louvre — Pavillon",
+			medium: "",
+			dimensions: "",
+			year: "",
+			about: "A facade from the Louvres (pavillon Mollien). Got a sunburn from sitting outside all day getting the details right"
+		},
+		{
+			web:  "images/art/web/defile.jpg",
+			full: "images/art/defile.JPEG",
+			title: "Défilé",
+			medium: "",
+			dimensions: "",
+			year: "",
+			about: "From my favorite haute couture collection (Galliano, Spring 98)"
+		}
+	];
+
+	(function () {
+		var wall     = document.getElementById('wall');
+		var piecesEl = document.getElementById('pieces');
+		var nav      = document.querySelector('.fh5co-nav');
+
+		function esc(s) {
+			return String(s).replace(/[&<>"']/g, function (c) {
+				return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+			});
+		}
+
+		/* Museum-label markup: title, a "medium · dimensions · year" line with
+		   empty fields dropped (no dangling separators), then the about text. */
+		function placardHTML(p) {
+			var meta = [p.medium, p.dimensions, p.year].filter(Boolean).map(esc).join(' · ');
+			return (meta ? '<span class="pl-meta">' + meta + '</span>' : '') +
+				(p.about ? '<span class="pl-about">' + esc(p.about) + '</span>' : '');
+		}
+
+		/* --- Build the wall from the config --- */
+		PIECES.forEach(function (p, i) {
+			var fig = document.createElement('figure');
+			fig.className = 'piece';
+			fig.setAttribute('tabindex', '0');
+			fig.setAttribute('role', 'button');
+			fig.setAttribute('aria-label', 'View ' + p.title + ' full screen');
+			fig.dataset.index = i;
+
+			fig.innerHTML =
+				'<div class="frame"><div class="mat">' +
+					'<img class="art" src="' + p.web + '" alt="' + esc(p.title) + '" loading="lazy" draggable="false">' +
+				'</div></div>' +
+				'<figcaption class="placard">' + placardHTML(p) + '</figcaption>';
+			piecesEl.appendChild(fig);
+
+			// Anchor the placard to its frame's rendered width (which is driven
+			// by the image), so labels line up under frames of any width.
+			var img = fig.querySelector('img.art');
+			if (img.complete && img.naturalWidth) sizePlacard(fig);
+			else img.addEventListener('load', function () { sizePlacard(fig); });
+		});
+
+		function sizePlacard(fig) {
+			var frame = fig.querySelector('.frame');
+			var placard = fig.querySelector('.placard');
+			if (frame && placard) placard.style.width = Math.round(frame.getBoundingClientRect().width) + 'px';
+		}
+		function sizeAllPlacards() {
+			var figs = piecesEl.querySelectorAll('.piece');
+			for (var k = 0; k < figs.length; k++) sizePlacard(figs[k]);
+		}
+		window.addEventListener('resize', sizeAllPlacards);
+
+		/* --- Keep the pieces clear of the fixed nav --- */
+		function syncNav() {
+			if (nav) {
+				document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+			}
+		}
+		syncNav();
+		window.addEventListener('resize', syncNav);
+
+		/* --- Vertical wheel -> horizontal walk --- */
+		wall.addEventListener('wheel', function (e) {
+			if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+				wall.scrollLeft += e.deltaY;
+				e.preventDefault();
+			}
+		}, { passive: false });
+
+		/* --- Keyboard: arrows + A/D --- */
+		window.addEventListener('keydown', function (e) {
+			if (document.getElementById('lightbox').classList.contains('open')) return;
+			var step = Math.max(320, wall.clientWidth * 0.72);
+			if (e.key === 'ArrowRight' || e.key === 'd' || e.key === 'D') {
+				wall.scrollBy({ left: step, behavior: 'smooth' });
+			} else if (e.key === 'ArrowLeft' || e.key === 'a' || e.key === 'A') {
+				wall.scrollBy({ left: -step, behavior: 'smooth' });
+			} else if (e.key === 'Home') {
+				wall.scrollTo({ left: 0, behavior: 'smooth' });
+			} else if (e.key === 'End') {
+				wall.scrollTo({ left: wall.scrollWidth, behavior: 'smooth' });
+			}
+		});
+
+		/* --- Mouse drag to pan (touch uses native swipe) --- */
+		var down = false, startX = 0, startScroll = 0, moved = 0;
+		wall.addEventListener('pointerdown', function (e) {
+			if (e.pointerType !== 'mouse') return;   // let touch scroll natively
+			down = true; moved = 0;
+			startX = e.clientX;
+			startScroll = wall.scrollLeft;
+			wall.classList.add('grabbing');
+		});
+		window.addEventListener('pointermove', function (e) {
+			if (!down) return;
+			var dx = e.clientX - startX;
+			moved = Math.max(moved, Math.abs(dx));
+			wall.scrollLeft = startScroll - dx;
+		});
+		window.addEventListener('pointerup', function () {
+			down = false;
+			wall.classList.remove('grabbing');
+		});
+
+		/* --- Open lightbox (ignore the tail end of a drag) --- */
+		function openFromEl(el) {
+			if (moved > 8) return;            // it was a drag, not a click
+			var p = PIECES[+el.dataset.index];
+			openLightbox(p);
+		}
+		piecesEl.addEventListener('click', function (e) {
+			var el = e.target.closest('.piece');
+			if (el) openFromEl(el);
+		});
+		piecesEl.addEventListener('keydown', function (e) {
+			var el = e.target.closest('.piece');
+			if (el && (e.key === 'Enter' || e.key === ' ')) {
+				e.preventDefault();
+				openLightbox(PIECES[+el.dataset.index]);
+			}
+		});
+
+		/* --- Lightbox --- */
+		var lb        = document.getElementById('lightbox');
+		var lbImg     = document.getElementById('lbImg');
+		var lbCap     = document.getElementById('lbCaption');
+		var lbClose   = document.getElementById('lbClose');
+		var lastFocus = null;
+
+		function openLightbox(p) {
+			lastFocus = document.activeElement;
+			lb.classList.remove('loaded');
+			var fileName = p.full.split('/').pop();   // e.g. "le_gouffre.JPEG"
+			lbImg.alt = fileName;
+			lbCap.innerHTML = '<span class="p-title">' + fileName + '</span>';
+			lbImg.src = '';                 // reset so onload always fires
+			lbImg.onload = function () { lb.classList.add('loaded'); };
+			lbImg.src = p.full;             // full-resolution original, loaded on demand
+			lb.classList.add('open');
+			document.body.classList.add('lb-open');
+			lbClose.focus();
+		}
+		function closeLightbox() {
+			lb.classList.remove('open');
+			document.body.classList.remove('lb-open');
+			lbImg.src = '';
+			if (lastFocus) lastFocus.focus();
+		}
+		lbClose.addEventListener('click', closeLightbox);
+		lb.addEventListener('click', function (e) {
+			if (e.target === lb) closeLightbox();   // click on backdrop
+		});
+		window.addEventListener('keydown', function (e) {
+			if (e.key === 'Escape' && lb.classList.contains('open')) closeLightbox();
+		});
+	})();
+	</script>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
