@@ -1,0 +1,315 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{TITLE}} | Agatha Duzan</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="{{DESCRIPTION}}" />
+	<meta name="keywords" content="{{KEYWORDS}}" />
+	<meta name="author" content="Agatha Duzan" />
+
+	<!-- Favicon -->
+	<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="favicons/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+	<link rel="manifest" href="favicons/manifest.json">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" href="favicons/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">
+	<link rel="shortcut icon" href="favicons/favicon.ico">
+
+	<!-- Facebook and Twitter integration -->
+	<meta property="og:type" content="article"/>
+	<meta property="og:title" content="{{TITLE}}"/>
+	<meta property="og:description" content="{{DESCRIPTION}}"/>
+	<meta property="og:image" content="{{OG_IMAGE}}"/>
+	<meta property="og:url" content="{{CANONICAL_URL}}"/>
+	<meta property="og:site_name" content="Agatha Duzan"/>
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="{{TITLE}}" />
+	<meta name="twitter:description" content="{{DESCRIPTION}}" />
+	<meta name="twitter:image" content="{{OG_IMAGE}}" />
+	<link rel="canonical" href="{{CANONICAL_URL}}" />
+
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet" />
+
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="css/flexslider.css">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="css/style.css">
+
+	<!-- Mobile navigation fix -->
+	<style>
+		@media (max-width: 1024px) {
+			#fh5co-portfolio,
+			#fh5co-blog,
+			#fh5co-contact,
+			#fh5co-started,
+			.fh5co-content-section {
+				padding-top: 120px !important;
+			}
+			h2.cool-font {
+				font-size: 5.6rem !important;
+			}
+		}
+
+		@media (min-width: 768px) {
+			.fh5co-nav-toggle {
+				display: none !important;
+			}
+			.fh5co-nav .menu-1 {
+				display: block !important;
+			}
+		}
+
+		/* Logo hover effect */
+		#fh5co-logo img {
+			content: url('images/logo_agatha.jpg');
+			transition: filter 1s ease;
+		}
+		#fh5co-logo img:hover {
+			content: url('images/logo_agatha_pink.jpg');
+		}
+
+		/* Post layout */
+		/* Title and headings inherit the site font and regular weight
+		   from css/style.css h1-h6; size matches .fh5co-heading h2 (40px) */
+		.blog-post .post-title {
+			font-size: 40px;
+			line-height: 1.3;
+			margin-top: 20px;
+			margin-bottom: 10px;
+		}
+		@media (max-width: 768px) {
+			.blog-post .post-title {
+				font-size: 30px;
+			}
+		}
+		.blog-post .post-meta {
+			display: block;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			font-size: 16px;
+			color: #b3b3b3;
+			margin-bottom: 20px;
+		}
+		.blog-post .post-hero {
+			width: 100%;
+			border-radius: 8px;
+			margin: 20px 0 40px;
+		}
+		.blog-post .back-link a:hover {
+			color: #ff0080e6 !important;
+			transition: all 0.3s ease;
+		}
+
+		/* Post body typography */
+		.blog-post .post-body {
+			font-size: 18px;
+			line-height: 1.8;
+		}
+		.blog-post .post-body p {
+			margin-bottom: 1.5em;
+		}
+		/* Links: same orange, pink on hover, as the rest of the site */
+		.blog-post .post-body a,
+		.blog-post .post-body a:visited {
+			color: #ff9900;
+			text-decoration: underline;
+			transition: color 0.3s ease;
+		}
+		.blog-post .post-body a:hover,
+		.blog-post .post-body a:focus,
+		.blog-post .post-body a:visited:hover {
+			color: #ff0080;
+			text-decoration: underline;
+		}
+		.blog-post .post-body h2,
+		.blog-post .post-body h3,
+		.blog-post .post-body h4 {
+			margin-top: 1.8em;
+			margin-bottom: 0.6em;
+		}
+		.blog-post .post-body h2 { font-size: 28px; }
+		.blog-post .post-body h3 { font-size: 24px; }
+		.blog-post .post-body h4 { font-size: 20px; }
+		.blog-post .post-body ul,
+		.blog-post .post-body ol {
+			margin-bottom: 1.5em;
+			padding-left: 1.4em;
+		}
+		.blog-post .post-body li {
+			margin-bottom: 0.5em;
+		}
+		.blog-post .post-body blockquote {
+			border-left: 3px solid #ff0080e6;
+			padding: 0.2em 0 0.2em 1.2em;
+			margin: 2em 0;
+			font-style: italic;
+			color: #666;
+		}
+		.blog-post .post-body blockquote p:last-child {
+			margin-bottom: 0;
+		}
+		.blog-post .post-body img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 8px;
+		}
+		.blog-post .post-body figure {
+			margin: 2.5em 0;
+			text-align: center;
+		}
+		.blog-post .post-body figure img {
+			max-width: 70%;
+		}
+		@media (max-width: 768px) {
+			.blog-post .post-body figure img {
+				max-width: 100%;
+			}
+		}
+		.blog-post .post-body figcaption {
+			font-size: 15px;
+			color: #999;
+			margin-top: 0.8em;
+			font-style: italic;
+		}
+		.blog-post .post-body pre,
+		.blog-post .post-body code {
+			background: #f7f7f7;
+			border-radius: 4px;
+		}
+		.blog-post .post-body code {
+			padding: 2px 5px;
+			font-size: 15px;
+		}
+		.blog-post .post-body pre {
+			padding: 1em 1.2em;
+			overflow-x: auto;
+		}
+		.blog-post .post-body pre code {
+			padding: 0;
+			background: none;
+		}
+		.blog-post .post-body hr {
+			border: none;
+			border-top: 1px solid #e6e6e6;
+			margin: 3em 0;
+		}
+		/* Typographic scene break (a line of *** in the markdown) */
+		.blog-post .post-body .scene-break {
+			text-align: center;
+			letter-spacing: 0.8em;
+			color: #b3b3b3;
+			margin: 2.5em 0;
+		}
+		.blog-post .post-footer {
+			margin-top: 4em;
+			padding-top: 2em;
+			border-top: 1px solid #e6e6e6;
+		}
+		.blog-post .post-footer a:hover {
+			color: #ff0080e6 !important;
+			transition: all 0.3s ease;
+		}
+	</style>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+
+	<div class="fh5co-loader"></div>
+
+	<div id="page">
+		<nav class="fh5co-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="fh5co-logo"><a href="index.html"><img src="images/logo_agatha.jpg" alt="Agatha Duzan"></a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<li><a href="index.html">Home</a></li>
+								<li><a href="projects.html">Projects</a></li>
+								<li><a href="activity.html">Activity</a></li>
+								<li><a href="gallery.html">Gallery</a></li>
+								<li class="active"><a href="blog.html">Blog</a></li>
+								<li><a href="contact.html">Contact</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	<div id="fh5co-blog">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 blog-post">
+
+					<div class="back-link">
+						<a href="blog.html"><i class="icon-arrow-left22"></i> Back to Blog</a>
+					</div>
+
+					<h2 class="post-title">{{TITLE}}</h2>
+					<span class="post-meta">{{DATE_DISPLAY}}</span>
+{{HERO}}
+					<div class="post-body">
+{{BODY}}
+					</div>
+
+					<div class="post-footer">
+						<a href="blog.html"><i class="icon-arrow-left22"></i> Back to Blog</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="js/jquery.flexslider-min.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
