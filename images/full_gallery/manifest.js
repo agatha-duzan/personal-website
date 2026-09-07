@@ -25,5 +25,10 @@ window.FULL_GALLERY = [
   "IMG_1936.jpg",
   "IMG_1938.jpg",
   "IMG_1941.jpg",
+  "IMG_1950.jpg",
+  "IMG_1963.jpg",
+  "IMG_1986.jpg",
+  "IMG_2004.jpg",
   "IMG_3304.jpg",
+  "Untitled_Artwork.jpg",
 ];
